@@ -7,7 +7,7 @@ type Dedup struct {
 	BeforeWait func()
 }
 
-func New(do func() interface{}) (d Dedup) {
+func New(do func() interface{}) Dedup {
 	lock := make(chan bool, 1)
 	lock <- true
 	return Dedup{
